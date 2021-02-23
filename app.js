@@ -28,7 +28,16 @@ app.get('/works', (req, res) => {
 
 
 app.get('/movies', (req, res) =>{
-	res.json({movies})
+  console.log(req.query)// { title: 'The Godfather' }
+
+let filteredmovies = movies.filter((eachelement) => {
+    return(eachelement.title.includes(req.query.title))
+})
+
+
+
+
+	res.json({filteredmovies})
 })
 
 
